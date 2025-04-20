@@ -21,4 +21,7 @@ message ConfirmEmailRequest {
   string code = 1;
 }
 
-message ConfigEmailResponse {}
+message ConfigEmailResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
