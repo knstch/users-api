@@ -7,6 +7,7 @@ service Users {
   rpc ConfirmEmail(ConfirmEmailRequest) returns (ConfirmEmailResponse);
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
   rpc Login(LoginRequest) returns (LoginResponse);
+  rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
 }
 
 message RegisterRequest {
@@ -45,4 +46,22 @@ message LoginRequest {
 message LoginResponse {
   string accessToken = 1;
   string refreshToken = 2;
+}
+
+message GetUserInfoRequest {
+  uint32 id = 1;
+}
+
+enum Role {
+  UNKNOWN_ROLE = 0;
+  VERIFIED_USER = 1;
+  UNVERIFIED_USER = 2;
+  ADMIN = 3;
+  SUPER_ADMIN = 4;
+}
+
+message GetUserInfoResponse {
+  uint32 id = 1;
+  string email = 2;
+  Role role = 3;
 }

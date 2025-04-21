@@ -23,6 +23,7 @@ const (
 	Users_ConfirmEmail_FullMethodName = "/users.private.Users/ConfirmEmail"
 	Users_RefreshToken_FullMethodName = "/users.private.Users/RefreshToken"
 	Users_Login_FullMethodName        = "/users.private.Users/Login"
+	Users_GetUserInfo_FullMethodName  = "/users.private.Users/GetUserInfo"
 )
 
 // UsersClient is the client API for Users service.
@@ -33,6 +34,7 @@ type UsersClient interface {
 	ConfirmEmail(ctx context.Context, in *ConfirmEmailRequest, opts ...grpc.CallOption) (*ConfirmEmailResponse, error)
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	GetUserInfo(ctx context.Context, in *GetUserInfoRequest, opts ...grpc.CallOption) (*GetUserInfoResponse, error)
 }
 
 type usersClient struct {
@@ -83,6 +85,16 @@ func (c *usersClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.
 	return out, nil
 }
 
+func (c *usersClient) GetUserInfo(ctx context.Context, in *GetUserInfoRequest, opts ...grpc.CallOption) (*GetUserInfoResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserInfoResponse)
+	err := c.cc.Invoke(ctx, Users_GetUserInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UsersServer is the server API for Users service.
 // All implementations must embed UnimplementedUsersServer
 // for forward compatibility.
@@ -91,6 +103,7 @@ type UsersServer interface {
 	ConfirmEmail(context.Context, *ConfirmEmailRequest) (*ConfirmEmailResponse, error)
 	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	GetUserInfo(context.Context, *GetUserInfoRequest) (*GetUserInfoResponse, error)
 	mustEmbedUnimplementedUsersServer()
 }
 
@@ -112,6 +125,9 @@ func (UnimplementedUsersServer) RefreshToken(context.Context, *RefreshTokenReque
 }
 func (UnimplementedUsersServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
+}
+func (UnimplementedUsersServer) GetUserInfo(context.Context, *GetUserInfoRequest) (*GetUserInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserInfo not implemented")
 }
 func (UnimplementedUsersServer) mustEmbedUnimplementedUsersServer() {}
 func (UnimplementedUsersServer) testEmbeddedByValue()               {}
@@ -206,6 +222,24 @@ func _Users_Login_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Users_GetUserInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UsersServer).GetUserInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Users_GetUserInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UsersServer).GetUserInfo(ctx, req.(*GetUserInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Users_ServiceDesc is the grpc.ServiceDesc for Users service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -228,6 +262,10 @@ var Users_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Login",
 			Handler:    _Users_Login_Handler,
+		},
+		{
+			MethodName: "GetUserInfo",
+			Handler:    _Users_GetUserInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
