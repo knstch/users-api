@@ -6,6 +6,7 @@ service Users {
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
   rpc ConfirmEmail(ConfirmEmailRequest) returns (ConfirmEmailResponse);
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse);
+  rpc Login(LoginRequest) returns (LoginResponse);
 }
 
 message CreateUserRequest {
@@ -32,6 +33,16 @@ message RefreshTokenRequest {
 }
 
 message RefreshTokenResponse {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
   string accessToken = 1;
   string refreshToken = 2;
 }
