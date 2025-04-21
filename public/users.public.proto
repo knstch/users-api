@@ -48,9 +48,7 @@ message LoginResponse {
   string refreshToken = 2;
 }
 
-message GetUserInfoRequest {
-  uint32 id = 1;
-}
+message GetUserInfoRequest {}
 
 enum Role {
   UNKNOWN = 0;
