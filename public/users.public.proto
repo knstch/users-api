@@ -53,7 +53,7 @@ message GetUserInfoRequest {
 }
 
 enum Role {
-  UNKNOWN_ROLE = 0;
+  UNKNOWN = 0;
   VERIFIED_USER = 1;
   UNVERIFIED_USER = 2;
   ADMIN = 3;
