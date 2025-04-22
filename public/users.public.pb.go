@@ -600,6 +600,184 @@ func (x *GetUserInfoResponse) GetRole() Role {
 	return Role_UNKNOWN
 }
 
+type ResetPasswordRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+}
+
+func (x *ResetPasswordRequest) Reset() {
+	*x = ResetPasswordRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_users_public_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetPasswordRequest) ProtoMessage() {}
+
+func (x *ResetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_users_public_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*ResetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_users_public_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ResetPasswordRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type ResetPasswordResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *ResetPasswordResponse) Reset() {
+	*x = ResetPasswordResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_users_public_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ResetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ResetPasswordResponse) ProtoMessage() {}
+
+func (x *ResetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_users_public_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ResetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*ResetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_users_public_proto_rawDescGZIP(), []int{11}
+}
+
+type ConfirmResetPasswordRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Email string `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Code  string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+}
+
+func (x *ConfirmResetPasswordRequest) Reset() {
+	*x = ConfirmResetPasswordRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_users_public_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ConfirmResetPasswordRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConfirmResetPasswordRequest) ProtoMessage() {}
+
+func (x *ConfirmResetPasswordRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_users_public_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConfirmResetPasswordRequest.ProtoReflect.Descriptor instead.
+func (*ConfirmResetPasswordRequest) Descriptor() ([]byte, []int) {
+	return file_users_public_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ConfirmResetPasswordRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *ConfirmResetPasswordRequest) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
+type ConfirmResetPasswordResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *ConfirmResetPasswordResponse) Reset() {
+	*x = ConfirmResetPasswordResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_users_public_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ConfirmResetPasswordResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ConfirmResetPasswordResponse) ProtoMessage() {}
+
+func (x *ConfirmResetPasswordResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_users_public_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ConfirmResetPasswordResponse.ProtoReflect.Descriptor instead.
+func (*ConfirmResetPasswordResponse) Descriptor() ([]byte, []int) {
+	return file_users_public_proto_rawDescGZIP(), []int{13}
+}
+
 var File_users_public_proto protoreflect.FileDescriptor
 
 var file_users_public_proto_rawDesc = []byte{
@@ -650,13 +828,24 @@ var file_users_public_proto_rawDesc = []byte{
 	0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c,
 	0x12, 0x27, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x13,
 	0x2e, 0x75, 0x73, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x52,
-	0x6f, 0x6c, 0x65, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x2a, 0x57, 0x0a, 0x04, 0x52, 0x6f, 0x6c,
+	0x6f, 0x6c, 0x65, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x22, 0x2c, 0x0a, 0x14, 0x52, 0x65, 0x73,
+	0x65, 0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x22, 0x17, 0x0a, 0x15, 0x52, 0x65, 0x73, 0x65, 0x74,
+	0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x47, 0x0a, 0x1b, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x52, 0x65, 0x73, 0x65, 0x74,
+	0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05,
+	0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x22, 0x1e, 0x0a, 0x1c, 0x43, 0x6f, 0x6e,
+	0x66, 0x69, 0x72, 0x6d, 0x52, 0x65, 0x73, 0x65, 0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72,
+	0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2a, 0x57, 0x0a, 0x04, 0x52, 0x6f, 0x6c,
 	0x65, 0x12, 0x0b, 0x0a, 0x07, 0x55, 0x4e, 0x4b, 0x4e, 0x4f, 0x57, 0x4e, 0x10, 0x00, 0x12, 0x11,
 	0x0a, 0x0d, 0x56, 0x45, 0x52, 0x49, 0x46, 0x49, 0x45, 0x44, 0x5f, 0x55, 0x53, 0x45, 0x52, 0x10,
 	0x01, 0x12, 0x13, 0x0a, 0x0f, 0x55, 0x4e, 0x56, 0x45, 0x52, 0x49, 0x46, 0x49, 0x45, 0x44, 0x5f,
 	0x55, 0x53, 0x45, 0x52, 0x10, 0x02, 0x12, 0x09, 0x0a, 0x05, 0x41, 0x44, 0x4d, 0x49, 0x4e, 0x10,
 	0x03, 0x12, 0x0f, 0x0a, 0x0b, 0x53, 0x55, 0x50, 0x45, 0x52, 0x5f, 0x41, 0x44, 0x4d, 0x49, 0x4e,
-	0x10, 0x04, 0x32, 0xa0, 0x03, 0x0a, 0x05, 0x55, 0x73, 0x65, 0x72, 0x73, 0x12, 0x4b, 0x0a, 0x08,
+	0x10, 0x04, 0x32, 0xed, 0x04, 0x0a, 0x05, 0x55, 0x73, 0x65, 0x72, 0x73, 0x12, 0x4b, 0x0a, 0x08,
 	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x12, 0x1e, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x73,
 	0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65,
 	0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x73,
@@ -682,8 +871,20 @@ var file_users_public_proto_rawDesc = []byte{
 	0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x1a, 0x22, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74,
 	0x65, 0x2e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x04, 0x5a, 0x02, 0x2e, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x5a, 0x0a, 0x0d, 0x52, 0x65, 0x73, 0x65, 0x74, 0x50, 0x61,
+	0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x12, 0x23, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x73, 0x2e, 0x70,
+	0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x65, 0x74, 0x50, 0x61, 0x73, 0x73,
+	0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x24, 0x2e, 0x75, 0x73,
+	0x65, 0x72, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x65,
+	0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x6f, 0x0a, 0x14, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x52, 0x65, 0x73, 0x65,
+	0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x12, 0x2a, 0x2e, 0x75, 0x73, 0x65, 0x72,
+	0x73, 0x2e, 0x70, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x72,
+	0x6d, 0x52, 0x65, 0x73, 0x65, 0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2b, 0x2e, 0x75, 0x73, 0x65, 0x72, 0x73, 0x2e, 0x70, 0x72,
+	0x69, 0x76, 0x61, 0x74, 0x65, 0x2e, 0x43, 0x6f, 0x6e, 0x66, 0x69, 0x72, 0x6d, 0x52, 0x65, 0x73,
+	0x65, 0x74, 0x50, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x42, 0x04, 0x5a, 0x02, 0x2e, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -699,19 +900,23 @@ func file_users_public_proto_rawDescGZIP() []byte {
 }
 
 var file_users_public_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_users_public_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_users_public_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_users_public_proto_goTypes = []any{
-	(Role)(0),                    // 0: users.private.Role
-	(*RegisterRequest)(nil),      // 1: users.private.RegisterRequest
-	(*RegisterResponse)(nil),     // 2: users.private.RegisterResponse
-	(*ConfirmEmailRequest)(nil),  // 3: users.private.ConfirmEmailRequest
-	(*ConfirmEmailResponse)(nil), // 4: users.private.ConfirmEmailResponse
-	(*RefreshTokenRequest)(nil),  // 5: users.private.RefreshTokenRequest
-	(*RefreshTokenResponse)(nil), // 6: users.private.RefreshTokenResponse
-	(*LoginRequest)(nil),         // 7: users.private.LoginRequest
-	(*LoginResponse)(nil),        // 8: users.private.LoginResponse
-	(*GetUserInfoRequest)(nil),   // 9: users.private.GetUserInfoRequest
-	(*GetUserInfoResponse)(nil),  // 10: users.private.GetUserInfoResponse
+	(Role)(0),                            // 0: users.private.Role
+	(*RegisterRequest)(nil),              // 1: users.private.RegisterRequest
+	(*RegisterResponse)(nil),             // 2: users.private.RegisterResponse
+	(*ConfirmEmailRequest)(nil),          // 3: users.private.ConfirmEmailRequest
+	(*ConfirmEmailResponse)(nil),         // 4: users.private.ConfirmEmailResponse
+	(*RefreshTokenRequest)(nil),          // 5: users.private.RefreshTokenRequest
+	(*RefreshTokenResponse)(nil),         // 6: users.private.RefreshTokenResponse
+	(*LoginRequest)(nil),                 // 7: users.private.LoginRequest
+	(*LoginResponse)(nil),                // 8: users.private.LoginResponse
+	(*GetUserInfoRequest)(nil),           // 9: users.private.GetUserInfoRequest
+	(*GetUserInfoResponse)(nil),          // 10: users.private.GetUserInfoResponse
+	(*ResetPasswordRequest)(nil),         // 11: users.private.ResetPasswordRequest
+	(*ResetPasswordResponse)(nil),        // 12: users.private.ResetPasswordResponse
+	(*ConfirmResetPasswordRequest)(nil),  // 13: users.private.ConfirmResetPasswordRequest
+	(*ConfirmResetPasswordResponse)(nil), // 14: users.private.ConfirmResetPasswordResponse
 }
 var file_users_public_proto_depIdxs = []int32{
 	0,  // 0: users.private.GetUserInfoResponse.role:type_name -> users.private.Role
@@ -720,13 +925,17 @@ var file_users_public_proto_depIdxs = []int32{
 	5,  // 3: users.private.Users.RefreshToken:input_type -> users.private.RefreshTokenRequest
 	7,  // 4: users.private.Users.Login:input_type -> users.private.LoginRequest
 	9,  // 5: users.private.Users.GetUserInfo:input_type -> users.private.GetUserInfoRequest
-	2,  // 6: users.private.Users.Register:output_type -> users.private.RegisterResponse
-	4,  // 7: users.private.Users.ConfirmEmail:output_type -> users.private.ConfirmEmailResponse
-	6,  // 8: users.private.Users.RefreshToken:output_type -> users.private.RefreshTokenResponse
-	8,  // 9: users.private.Users.Login:output_type -> users.private.LoginResponse
-	10, // 10: users.private.Users.GetUserInfo:output_type -> users.private.GetUserInfoResponse
-	6,  // [6:11] is the sub-list for method output_type
-	1,  // [1:6] is the sub-list for method input_type
+	11, // 6: users.private.Users.ResetPassword:input_type -> users.private.ResetPasswordRequest
+	13, // 7: users.private.Users.ConfirmResetPassword:input_type -> users.private.ConfirmResetPasswordRequest
+	2,  // 8: users.private.Users.Register:output_type -> users.private.RegisterResponse
+	4,  // 9: users.private.Users.ConfirmEmail:output_type -> users.private.ConfirmEmailResponse
+	6,  // 10: users.private.Users.RefreshToken:output_type -> users.private.RefreshTokenResponse
+	8,  // 11: users.private.Users.Login:output_type -> users.private.LoginResponse
+	10, // 12: users.private.Users.GetUserInfo:output_type -> users.private.GetUserInfoResponse
+	12, // 13: users.private.Users.ResetPassword:output_type -> users.private.ResetPasswordResponse
+	14, // 14: users.private.Users.ConfirmResetPassword:output_type -> users.private.ConfirmResetPasswordResponse
+	8,  // [8:15] is the sub-list for method output_type
+	1,  // [1:8] is the sub-list for method input_type
 	1,  // [1:1] is the sub-list for extension type_name
 	1,  // [1:1] is the sub-list for extension extendee
 	0,  // [0:1] is the sub-list for field type_name
@@ -858,6 +1067,54 @@ func file_users_public_proto_init() {
 				return nil
 			}
 		}
+		file_users_public_proto_msgTypes[10].Exporter = func(v any, i int) any {
+			switch v := v.(*ResetPasswordRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_users_public_proto_msgTypes[11].Exporter = func(v any, i int) any {
+			switch v := v.(*ResetPasswordResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_users_public_proto_msgTypes[12].Exporter = func(v any, i int) any {
+			switch v := v.(*ConfirmResetPasswordRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_users_public_proto_msgTypes[13].Exporter = func(v any, i int) any {
+			switch v := v.(*ConfirmResetPasswordResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -865,7 +1122,7 @@ func file_users_public_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_users_public_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   10,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
