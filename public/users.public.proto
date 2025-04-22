@@ -75,6 +75,7 @@ message ResetPasswordResponse {}
 message ConfirmResetPasswordRequest {
   string email = 1;
   string code = 2;
+  string password = 3;
 }
 
 message ConfirmResetPasswordResponse {}
