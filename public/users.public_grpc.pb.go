@@ -19,13 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Users_Register_FullMethodName             = "/users.private.Users/Register"
-	Users_ConfirmEmail_FullMethodName         = "/users.private.Users/ConfirmEmail"
-	Users_RefreshToken_FullMethodName         = "/users.private.Users/RefreshToken"
-	Users_Login_FullMethodName                = "/users.private.Users/Login"
-	Users_GetUserInfo_FullMethodName          = "/users.private.Users/GetUserInfo"
-	Users_ResetPassword_FullMethodName        = "/users.private.Users/ResetPassword"
-	Users_ConfirmResetPassword_FullMethodName = "/users.private.Users/ConfirmResetPassword"
+	Users_Register_FullMethodName             = "/users.public.Users/Register"
+	Users_ConfirmEmail_FullMethodName         = "/users.public.Users/ConfirmEmail"
+	Users_RefreshToken_FullMethodName         = "/users.public.Users/RefreshToken"
+	Users_Login_FullMethodName                = "/users.public.Users/Login"
+	Users_GetUserInfo_FullMethodName          = "/users.public.Users/GetUserInfo"
+	Users_ResetPassword_FullMethodName        = "/users.public.Users/ResetPassword"
+	Users_ConfirmResetPassword_FullMethodName = "/users.public.Users/ConfirmResetPassword"
 )
 
 // UsersClient is the client API for Users service.
@@ -312,7 +312,7 @@ func _Users_ConfirmResetPassword_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Users_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "users.private.Users",
+	ServiceName: "users.public.Users",
 	HandlerType: (*UsersServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

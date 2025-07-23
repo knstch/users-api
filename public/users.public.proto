@@ -1,5 +1,5 @@
 syntax = "proto3";
-package users.private;
+package users.public;
 option go_package = "./";
 
 service Users {
